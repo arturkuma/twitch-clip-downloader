@@ -35,7 +35,7 @@ async function findVideoUrl(clipUrl, browserExecutablePath) {
 
     await browser.close();
 
-    return url;
+    return url.length > 0 ? url : false;
 }
 
 async function downloadTwitchClip(clipUrl, downloadDest, browserExecutablePath) {
