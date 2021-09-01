@@ -1,12 +1,12 @@
-# Twitch Clip Downloader
+# Twitch Video Url Finder
 
-Super simple way to download Twitch clips.
+Super simple way to get Twitch clips url.
 
 This library uses [puppeteer](https://www.npmjs.com/package/puppeteer) library to render twitch page and find video url to download.
 
 ## Import
 ```javascript
-import twitchDownloader from 'twitch-clip-downloader';
+import twitchUrlFinder from 'twitch-video-url-finder';
 ```
 
 ## Browser location
@@ -31,16 +31,16 @@ const browserArgs = ['--no-sandbox']; // Sometimes you may have to specify brows
 const downloadTwitchClip = twitchDownloader(browserLocation, browserArgs);
 
 const clipUrl = 'https://www.twitch.tv/user/clip/id';
-const videoLocation = 'videos/test.mp4';
-
-await downloadTwitchClip(clipUrl, videoLocation);
+downloadTwitchClip(clipUrl).then(url => console.log(url));
 ```
 
 ## Example
 ```javascript
-import twitchDownloader from 'twitch-clip-downloader';
+import twitchUrlFinder from 'twitch-video-url-finder';
 
 const downloadTwitchClip = twitchDownloader('/usr/bin/google-chrome-stable', ['--no-sandbox']);
 
-await downloadTwitchClip('https://www.twitch.tv/user/clip/id', 'videos/test.mp4');
+const { url } = await downloadTwitchClip('https://www.twitch.tv/user/clip/id');
+
+console.log(url);
 ```
