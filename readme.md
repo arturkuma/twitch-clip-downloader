@@ -41,6 +41,6 @@ await downloadTwitchClip(clipUrl, videoLocation);
 import twitchDownloader from 'twitch-clip-downloader';
 
 const downloadTwitchClip = twitchDownloader('/usr/bin/google-chrome-stable', ['--no-sandbox']);
-__
+
 await downloadTwitchClip('https://www.twitch.tv/user/clip/id', 'videos/test.mp4');
 ```
