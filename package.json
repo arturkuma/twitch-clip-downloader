@@ -1,5 +1,5 @@
 {
-  "name": "twitch-clip-downloader",
+  "name": "@arturkuma/twitch-clip-downloader",
   "version": "1.0.0",
   "description": "Super simple way to download Twitch clips",
   "repository": "arturkuma/twitch-clip-downloader",
