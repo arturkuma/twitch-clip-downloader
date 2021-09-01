@@ -22,10 +22,11 @@ function downloadFile(fileUrl, downloadDest) {
     });
 }
 
-async function findVideoUrl(clipUrl, browserExecutablePath) {
+async function findVideoUrl(clipUrl, browserExecutablePath, browserArgs) {
     const browser = await puppeteer.launch({
         headless: true,
-        executablePath: browserExecutablePath
+        executablePath: browserExecutablePath,
+        args: browserArgs
     });
 
     const page = await browser.newPage();
@@ -38,13 +39,18 @@ async function findVideoUrl(clipUrl, browserExecutablePath) {
     return url.length > 0 ? url : false;
 }
 
-async function downloadTwitchClip(clipUrl, downloadDest, browserExecutablePath) {
-    const url = await findVideoUrl(clipUrl, browserExecutablePath);
+async function downloadTwitchClip(clipUrl, downloadDest, browserExecutablePath, browserArgs) {
+    const url = await findVideoUrl(clipUrl, browserExecutablePath, browserArgs);
+
+    if(!url) {
+        throw new Error('Could not find video url');
+    }
+
     await downloadFile(url, downloadDest);
 }
 
-module.exports = function (browserExecutablePath) {
+module.exports = function (browserExecutablePath, browserArgs) {
     return function(clipUrl, downloadDest) {
-        downloadTwitchClip(clipUrl, downloadDest, browserExecutablePath);
+        downloadTwitchClip(clipUrl, downloadDest, browserExecutablePath, browserArgs);
     }
 };
