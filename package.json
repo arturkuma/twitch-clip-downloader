@@ -1,0 +1,16 @@
+{
+  "name": "twitch-clip-downloader",
+  "version": "1.0.0",
+  "description": "Super simple way to download Twitch clips",
+  "repository": "arturkuma/twitch-clip-downloader",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./"
+  },
+  "author": "arturkuma",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "puppeteer": "^10.2.0"
+  }
+}
