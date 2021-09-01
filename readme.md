@@ -2,7 +2,7 @@
 
 Super simple way to get Twitch clips url.
 
-This library uses [puppeteer](https://www.npmjs.com/package/puppeteer) library to render twitch page and find video url to download.
+This library uses [puppeteer](https://www.npmjs.com/package/puppeteer) library to render twitch page and find video url.
 
 ## Import
 ```javascript
@@ -28,19 +28,19 @@ Please note that your location may be different.
 ## Usage
 ```javascript
 const browserArgs = ['--no-sandbox']; // Sometimes you may have to specify browser arguments. This option is required to run chromium inside docker.
-const downloadTwitchClip = twitchDownloader(browserLocation, browserArgs);
+const findClipFileUrl = twitchUrlFinder(browserLocation, browserArgs);
 
 const clipUrl = 'https://www.twitch.tv/user/clip/id';
-downloadTwitchClip(clipUrl).then(url => console.log(url));
+findClipFileUrl(clipUrl).then(url => console.log(url));
 ```
 
 ## Example
 ```javascript
 import twitchUrlFinder from 'twitch-video-url-finder';
 
-const downloadTwitchClip = twitchDownloader('/usr/bin/google-chrome-stable', ['--no-sandbox']);
+const findClipFileUrl = twitchUrlFinder('/usr/bin/google-chrome-stable', ['--no-sandbox']);
 
-const { url } = await downloadTwitchClip('https://www.twitch.tv/user/clip/id');
+const { url } = await findClipFileUrl('https://www.twitch.tv/user/clip/id');
 
 console.log(url);
 ```
